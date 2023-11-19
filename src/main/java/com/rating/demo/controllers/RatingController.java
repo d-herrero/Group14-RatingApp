@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RatingController
 {
     private final AccountService accountService;
-
     @Autowired
     public RatingController(AccountService accountService)
     {
@@ -27,4 +26,5 @@ public class RatingController
     {
         return ResponseEntity.ok().body(accountService.createAuthor(account));
     }
+
 }
