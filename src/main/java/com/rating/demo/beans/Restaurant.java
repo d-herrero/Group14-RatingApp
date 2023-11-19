@@ -13,7 +13,7 @@ public class Restaurant {
     @Column
     private String restaurantName;
     @Column
-    private Double location;
+    private String location;
     @Column
     private Double rating;
     @Column
@@ -33,19 +33,21 @@ public class Restaurant {
         this.restaurantName = restaurantName;
     }
 
-    public Double getLocation() {
+    public String getLocation() {
         return location;
     }
-    public void setLocation(Double location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-//    public Double getRating() {
-//        return rating;
-//    }
-//    public void setRating(Double rating) {
-//        this.rating = rating;
-//    }
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
 //
 //    public Double getStudyRating() {
 //        return studyRating;
