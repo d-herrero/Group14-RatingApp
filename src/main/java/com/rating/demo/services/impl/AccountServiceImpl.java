@@ -16,10 +16,10 @@ public class AccountServiceImpl implements AccountService
     }
 
     @Override
-    public Account createAuthor(Account author)
+    public Account createAccount(Account account)
     {
 
-        return accountRepository.save(author);
+        return accountRepository.save(account);
     }
 
     @Override

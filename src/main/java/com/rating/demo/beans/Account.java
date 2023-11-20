@@ -1,23 +1,18 @@
 package com.rating.demo.beans;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name="account")
 public class Account
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    @Column
     String fullname;
-    @Column
     int studentId;
-    @Column
     String email;
-    @Column
     String username;
-    @Column
     String password;
 
     public Account(int id, String fullname, int studentId, String email, String username, String password)

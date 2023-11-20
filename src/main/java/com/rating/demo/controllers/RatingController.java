@@ -24,7 +24,7 @@ public class RatingController
     @PostMapping("/account")
     public ResponseEntity<Account> createAccount(@RequestBody Account account)
     {
-        return ResponseEntity.ok().body(accountService.createAuthor(account));
+        return ResponseEntity.ok().body(accountService.createAccount(account));
     }
 
 }
