@@ -4,12 +4,12 @@ package com.rating.demo.beans;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="account")
+@Table(name="accounts")
 public class Account
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    Integer id;
     @Column
     String fullName;
     @Column
@@ -21,23 +21,13 @@ public class Account
     @Column
     String password;
 
-    public Account(int id, String fullName, int studentId, String email, String username, String password)
-    {
-        this.id = id;
-        this.fullName = fullName;
-        this.studentId = studentId;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-    }
-
 
     public int getId()
     {
         return id;
     }
 
-    public void setId(int id)
+    public void setId(Integer id)
     {
         this.id = id;
     }
@@ -47,7 +37,7 @@ public class Account
         return fullName;
     }
 
-    public void setFullname(String fullName)
+    public void setFullName(String fullName)
     {
         this.fullName = fullName;
     }

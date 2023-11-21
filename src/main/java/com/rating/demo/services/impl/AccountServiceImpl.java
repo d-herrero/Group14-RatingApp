@@ -43,7 +43,7 @@ public class AccountServiceImpl implements AccountService
         Account update = accountRepository.findById(accountId).get();
         update.setStudentId(account.getStudentId());
         update.setEmail(account.getEmail());
-        update.setFullname(account.getFullName());
+        update.setFullName(account.getFullName());
         update.setUsername(account.getUsername());
         update.setPassword(account.getPassword());
         return accountRepository.save(update);
