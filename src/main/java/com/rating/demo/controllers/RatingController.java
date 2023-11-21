@@ -10,37 +10,8 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/rating")
 public class RatingController
 {
-    @Autowired
-    AccountService accountService;
-    public RatingController(AccountService accountService)
-    {
-        this.accountService = accountService;
-    }
 
-    @PostMapping("/add")
-    public Account createAccount(@RequestBody Account account)
-    {
-        return accountService.createAccount(account);
-    }
-
-    @GetMapping("/{id}")
-    public Optional<Account> getAccount(@PathVariable(value = "id") Long accountId)
-    {
-        return accountService.getAccount(accountId);
-    }
-
-    @GetMapping()
-    public List<Account> getAllAccounts() {
-        return accountService.getAllAccount();
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteAccount(@PathVariable(value = "id") Long accountId)
-    {
-        accountService.deleteAccount(accountId);
-        return "Account with id: " + accountId + " deleted...";
-    }
 }
