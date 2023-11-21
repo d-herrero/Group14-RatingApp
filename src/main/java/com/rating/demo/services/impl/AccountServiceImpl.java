@@ -5,6 +5,9 @@ import com.rating.demo.services.AccountService;
 import com.rating.demo.repositories.AccountRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AccountServiceImpl implements AccountService
 {
@@ -23,21 +26,33 @@ public class AccountServiceImpl implements AccountService
     }
 
     @Override
-    public Account updateAccount(Long id, Account account)
+    public List<Account> getAllAccount()
     {
-        Account update = accountRepository.findById(id).get();
+        return accountRepository.findAll();
+    }
+
+    @Override
+    public Optional<Account> getAccount(Long accountId)
+    {
+        return accountRepository.findById(accountId);
+    }
+
+    @Override
+    public Account updateAccount(Long accountId, Account account)
+    {
+        Account update = accountRepository.findById(accountId).get();
         update.setStudentId(account.getStudentId());
         update.setEmail(account.getEmail());
-        update.setFullname(account.getFullname());
+        update.setFullname(account.getFullName());
         update.setUsername(account.getUsername());
         update.setPassword(account.getPassword());
         return accountRepository.save(update);
     }
 
     @Override
-    public void deleteAccount(Long id)
+    public void deleteAccount(Long accountId)
     {
-        Account delete = accountRepository.findById(id).get();
+        Account delete = accountRepository.findById(accountId).get();
         accountRepository.delete(delete);
     }
 }
