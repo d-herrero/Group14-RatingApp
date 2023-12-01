@@ -1,5 +1,6 @@
 package com.rating.demo.controllers;
 
+import com.rating.demo.beans.Rating;
 import com.rating.demo.beans.Restaurant;
 import com.rating.demo.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +28,14 @@ public class RestaurantController {
         return restaurantService.getRestaurantById(id);
     }
 
-    @GetMapping ("/locations")
+    @GetMapping("/locations/{location}")
     public List<Restaurant> getRestaurantsByLocation(@PathVariable String location) {
         return restaurantService.getRestaurantsByLocation(location);
     }
 
     @GetMapping("/rating/{rating}")
-    public List<Restaurant> getRestaurantByRatingAscending(@PathVariable double rating) {
-        return restaurantService.getBooksByRatingAscending(rating);
+    public List<Restaurant> getRestaurantsByMinRating(@PathVariable double rating) {
+        return restaurantService.getRestaurantsByMinRating(rating);
     }
 
     @PostMapping
@@ -42,5 +43,9 @@ public class RestaurantController {
         return restaurantService.addRestaurant(restaurant);
     }
 
+    @PostMapping("/{id}/rate")
+    public Restaurant rateRestaurant(@PathVariable Long id, @RequestBody Rating rating) {
+        return restaurantService.rateRestaurant(id, rating);
+    }
 
 }

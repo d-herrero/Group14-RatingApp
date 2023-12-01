@@ -1,15 +1,15 @@
 package com.rating.demo.services;
+import com.rating.demo.beans.Rating;
 import com.rating.demo.beans.Restaurant;
 
 
 import java.util.List;
 
 public interface RestaurantService {
-    public List<Restaurant> getAllRestaurants();
-    public Restaurant getRestaurantById(Long id);
-    public List<Restaurant> getBooksByRatingAscending(double rating);
-    public List<Restaurant> getRestaurantsByLocation(String location);
-    public Restaurant addRestaurant(Restaurant restaurant);
-
-
+    List<Restaurant> getAllRestaurants();
+    Restaurant getRestaurantById(Long id);
+    List<Restaurant> getRestaurantsByMinRating(double rating);
+    List<Restaurant> getRestaurantsByLocation(String location);
+    Restaurant addRestaurant(Restaurant restaurant);
+    Restaurant rateRestaurant(Long restaurantId, Rating rating);
 }
